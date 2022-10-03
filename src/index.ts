@@ -7,12 +7,12 @@ const app = express();
 
 const httpProxy = httpproxy.createProxyServer();
 
-const error500 = (res: any) => {
+const error500 = (res: express.Response) => {
     return () => {
         res.status(500).send(fs.readFileSync("src/error500.html").toString());
     }
 }
-const error404 = (res: any) => {
+const error404 = (res: express.Response) => {
     return () => {
         res.status(404).send(fs.readFileSync("src/error404.html").toString());
     }
